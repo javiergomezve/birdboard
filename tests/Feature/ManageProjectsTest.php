@@ -19,6 +19,7 @@ class ManageProjectsTest extends TestCase
         $project = factory('App\Project')->create();
 
         $this->get('/projects')->assertRedirect('login');
+        $this->get('/projects/create')->assertRedirect('login');
         $this->post('/projects', $project->toArray())->assertRedirect('login');
         $this->get($project->path())->assertRedirect('login');
     }
@@ -33,6 +34,8 @@ class ManageProjectsTest extends TestCase
         $user = factory('App\User')->create();
 
         $this->actingAs($user);
+
+        $this->get('/projects/create')->assertStatus(200);
 
         $attributes = factory('App\Project')->raw(['owner_id' => $user->id]);
 
