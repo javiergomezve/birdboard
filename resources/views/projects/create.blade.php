@@ -1,34 +1,22 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>BirdBoard</title>
-</head>
-<body>
+@extends('layouts.app')
 
-<div class="container">
+@section('content')
+
     <form method="post" action="/projects">
         <h1>Create a Project</h1>
         {{ csrf_field() }}
-        <div>
+        <div class="form-group">
             <label for="title">Title</label>
-            <div>
-                <input type="text" id="title" name="title" value="">
-            </div>
+            <input class="form-control" type="text" id="title" name="title" value="">
         </div>
-        <div>
+        <div class="form-group">
             <label for="description">Description</label>
-            <div>
-                <textarea name="description" id="description" cols="30" rows="10"></textarea>
-            </div>
+            <textarea class="form-control" name="description" id="description" cols="30" rows="10"></textarea>
         </div>
-        <div>
-            <input type="submit" value="Create">
+        <div class="form-group">
+            <input type="submit" value="Create" class="btn btn-primary">
+            <a href="/projects">Cancel</a>
         </div>
     </form>
-</div>
-</body>
-</html>
+
+@endsection

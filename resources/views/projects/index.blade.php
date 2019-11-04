@@ -1,14 +1,11 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>BirdBoard</title>
-</head>
-<body>
-    <h1>BirdBoard</h1>
+@extends('layouts.app')
+
+@section('content')
+
+    <div class="flex items-center mb-3">
+        <h1 class="mr-auto">Projects</h1>
+        <a href="/projects/create">New project</a>
+    </div>
 
     <ul>
         @forelse($projects as $project)
@@ -21,5 +18,5 @@
             <li>No projects yet.</li>
         @endforelse
     </ul>
-</body>
-</html>
+
+@endsection
